@@ -1,7 +1,7 @@
-var fs     = require('fs');
-var os     = require('os');
-var path   = require('path');
-var wrench = require('wrench');
+var fs       = require('fs-extra');
+var klawSync = require('klaw-sync');
+var os       = require('os');
+var path     = require('path');
 
 var FileError = require('../errors/file_error');
 
@@ -9,9 +9,9 @@ var FileError = require('../errors/file_error');
  * Search files recursivly and filter with include / exlude filters
  */
 function FindFiles() {
-    this.path = './';
-    this.excludeFilters = [];
-    this.includeFilters = [];
+  this.path = process.cwd();
+  this.excludeFilters = [];
+  this.includeFilters = [];
 }
 
 /**
@@ -24,9 +24,10 @@ module.exports = new FindFiles();
  *
  * @param {String} path
  */
-FindFiles.prototype.setPath = function(path) {
-    if (path)
-        this.path = path;
+FindFiles.prototype.setPath = function(newPath) {
+  if (path) {
+    this.path = path.resolve(newPath);
+  }
 };
 
 /**
@@ -35,8 +36,9 @@ FindFiles.prototype.setPath = function(path) {
  * @param {string[]} excludeFilters
  */
 FindFiles.prototype.setExcludeFilters = function(excludeFilters) {
-    if (excludeFilters)
-        this.excludeFilters = excludeFilters;
+  if (excludeFilters) {
+    this.excludeFilters = excludeFilters;
+  }
 };
 
 /**
@@ -45,8 +47,9 @@ FindFiles.prototype.setExcludeFilters = function(excludeFilters) {
  * @param {string[]} isSilent
  */
 FindFiles.prototype.setIncludeFilters = function(includeFilters) {
-    if (includeFilters)
-        this.includeFilters = includeFilters;
+  if (includeFilters) {
+    this.includeFilters = includeFilters;
+  }
 };
 
 /**
@@ -55,71 +58,92 @@ FindFiles.prototype.setIncludeFilters = function(includeFilters) {
  * @returns {String[]}
  */
 FindFiles.prototype.search = function() {
-    var self = this;
-    var files = [];
-    try {
-        // find Files
-        files = wrench.readdirSyncRecursive(self.path);
+  var self = this;
+  var files = [];
 
-        // create RegExp Include Filter List
-        var regExpIncludeFilters = [];
-        var filters = self.includeFilters;
-        if (typeof(filters) === 'string')
-            filters = [ filters ];
+  try {
+    files = klawSync(self.path).map( function(entry) {
+      return entry.path;
+    });
 
-        filters.forEach(function(filter) {
-            if (filter.length > 0)
-                regExpIncludeFilters.push( new RegExp(filter) );
-        });
-
-        // RegExp Include Filter
-        var length = regExpIncludeFilters.length;
-        files = files.filter(function(filename) {
-            // Not include Directories like 'dirname.js'
-            var fullFilename = path.join(self.path, filename);
-            if (fs.statSync(fullFilename).isDirectory())
-                return 0;
-
-            if (os.platform() === 'win32')
-                filename = filename.replace(/\\/g, '/');
-
-            // apply every filter
-            for (var i = 0; i < length; i += 1) {
-                if(regExpIncludeFilters[i].test(filename))
-                    return 1;
-            }
-            return 0;
-        });
-
-        // create RegExp Exclude Filter List
-        var regExpExcludeFilters = [];
-        filters = self.excludeFilters;
-        if (typeof(filters) === 'string')
-            filters = [ filters ];
-
-        filters.forEach(function(filter) {
-            if (filter.length > 0)
-                regExpExcludeFilters.push( new RegExp(filter) );
-        }); // forEach
-
-        // RegExp Exclude Filter
-        length = regExpExcludeFilters.length;
-        files = files.filter(function(filename) {
-            if (os.platform() === 'win32')
-                filename = filename.replace(/\\/g, '/');
-
-            // apply every filter
-            for(var i = 0; i < length; i += 1) {
-                if(regExpExcludeFilters[i].test(filename))
-                    return 0;
-            }
-            return 1;
-        });
-    } catch (e) {
-        throw e;
-    } finally {
-        if ( ! files || files.length === 0)
-            throw new FileError('No files found.', self.path);
+    // create RegExp Include Filter List
+    var regExpIncludeFilters = [];
+    var filters = self.includeFilters;
+    if (typeof(filters) === 'string') {
+      filters = [ filters ];
     }
-    return files;
+
+    filters.forEach(function(filter) {
+      if (filter.length > 0) {
+        regExpIncludeFilters.push( new RegExp(filter) );
+      }
+    });
+
+    // RegExp Include Filter
+    var length = regExpIncludeFilters.length;
+    files = files.filter(function(filename) {
+      // not include Directories like 'dirname.js/'
+      if (fs.statSync(filename).isDirectory()) {
+        return 0;
+      }
+
+      if (os.platform() === 'win32') {
+        filename = filename.replace(/\\/g, '/');
+      }
+
+      // apply every filter
+      for (var i = 0; i < length; i += 1) {
+        if(regExpIncludeFilters[i].test(filename)) {
+          return 1;
+        }
+      }
+
+      return 0;
+    });
+
+    // create RegExp Exclude Filter List
+    var regExpExcludeFilters = [];
+    filters = self.excludeFilters;
+    if (typeof(filters) === 'string') {
+      filters = [ filters ];
+    }
+
+    filters.forEach(function(filter) {
+      if (filter.length > 0) {
+        regExpExcludeFilters.push( new RegExp(filter) );
+      }
+    });
+
+    // RegExp Exclude Filter
+    length = regExpExcludeFilters.length;
+    files = files.filter(function(filename) {
+      if (os.platform() === 'win32') {
+       filename = filename.replace(/\\/g, '/');
+      }
+
+      // apply every filter
+      for(var i = 0; i < length; i += 1) {
+        if(regExpExcludeFilters[i].test(filename)) {
+          return 0;
+        }
+      }
+
+      return 1;
+    });
+  } catch (e) {
+    throw e;
+  } finally {
+    if ( ! files || files.length === 0) {
+      throw new FileError('No files found.', self.path);
+    }
+
+    // remove source path prefix
+    files = files.map( function(filename) {
+      if (filename.startsWith(self.path)) {
+        return filename.substr(self.path.length + 1);
+      }
+      return filename;
+    });
+  }
+  return files;
 };

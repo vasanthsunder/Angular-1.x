@@ -31,7 +31,7 @@ function preProcess(parsedFiles, filenames, packageInfos, target) {
         parsedFile.forEach(function(block) {
             if (block.global[source]) {
                 var name = block.global[source].name;
-                var version = block.version || '0.0.0';
+                var version = block.version || packageInfos.defaultVersion;
 
                 if ( ! result[target][name])
                     result[target][name] = {};
@@ -71,7 +71,7 @@ function postProcess(parsedFiles, filenames, preProcess, packageInfos, source, t
 
             block.local[target].forEach(function(definition) {
                 var name = definition.name;
-                var version = block.version || '0.0.0';
+                var version = block.version || packageInfos.defaultVersion;
 
                 if ( ! preProcess[source] || ! preProcess[source][name]) {
                     throw new WorkerError('Referenced groupname does not exist / it is not defined with @apiDefine.',
@@ -93,7 +93,7 @@ function postProcess(parsedFiles, filenames, preProcess, packageInfos, source, t
                 } else {
                     // find nearest matching version
                     var foundIndex = -1;
-                    var lastVersion = '0.0.0';
+                    var lastVersion = packageInfos.defaultVersion;
 
                     var versionKeys = Object.keys(preProcess[source][name]);
                     versionKeys.forEach(function(currentVersion, versionIndex) {
@@ -142,11 +142,13 @@ function postProcess(parsedFiles, filenames, preProcess, packageInfos, source, t
  * @todo Bad Hack - watch for something better
  */
 function _recursiveMerge(block, matchedData) {
-    _.merge(block, matchedData, function(a, b) {
-        if(a instanceof Array)
+    _.mergeWith(block, matchedData, function(a, b) {
+        if(a instanceof Array) {
             return a.concat(b);
-        if(_.isObject(a))
+        }
+        if(_.isObject(a)) {
             _recursiveMerge(a, b);
+        }
         return a;
     });
 }

@@ -26,9 +26,14 @@ function Worker(_app) {
     // load worker
     var workers = Object.keys(app.workers);
     workers.forEach(function(worker) {
-        var filename = app.workers[worker];
-        app.log.debug('load worker: ' + worker + ', ' + filename);
-        self.addWorker(worker, require(filename));
+        if (_.isObject( app.workers[worker] )) {
+            app.log.debug('inject worker: ' + worker);
+            self.addWorker(worker, app.workers[worker] );
+        } else {
+            var filename = app.workers[worker];
+            app.log.debug('load worker: ' + worker + ', ' + filename);
+            self.addWorker(worker, require(filename));
+        }
     });
 }
 
@@ -67,7 +72,7 @@ Worker.prototype.process = function(parsedFiles, parsedFilenames, packageInfos) 
                     block.local.url = '';
 
                 if ( ! block.local.version)
-                    block.local.version = '0.0.0';
+                    block.local.version = packageInfos.defaultVersion;
 
                 if ( ! block.local.filename)
                     block.local.filename = parsedFilenames[fileIndex];
