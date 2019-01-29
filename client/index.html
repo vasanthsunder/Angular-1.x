@@ -1,0 +1,76 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <base href="/">
+  <title>IRVUI Scaffold</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+
+  
+
+  <!-- build:css app.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/ag-grid/dist/angular-grid.css">
+  <link rel="stylesheet" href="bower_components/ag-grid/dist/theme-fresh.css">
+  <link rel="stylesheet" href="bower_components/ag-grid/dist/theme-dark.css">
+  <!-- endinject -->
+
+  <link rel="stylesheet" href="styles/css/app.css">
+  <!-- endbuild -->
+
+</head>
+
+<body ng-app="app">
+
+  <header data-ng-include="'templates/header.html'"></header>
+  <div class="container body-content"  ui-view></div>
+  <footer data-ng-include=" 'templates/footer.html'"></footer>
+
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-XXXXX-X');
+    ga('send', 'pageview');
+  </script>
+
+  <!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.min.js"></script>
+  <![endif]-->
+
+  <!-- build:js vendor.js -->
+  <!-- bower:js -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/ag-grid/dist/angular-grid.js"></script>
+  <script src="bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+  <!-- endinject -->
+  <!-- endbuild -->
+
+  <!-- build:js app.js -->
+  <!-- inject:js -->
+  <script src="app/app.js"></script>
+  <script src="app/home/home.module.js"></script>
+  <script src="app/home/home.controller.js"></script>
+  <script src="app/home/home.route.js"></script>
+  <!-- endinject -->
+  <!-- endbuild -->
+
+</body>
+
+</html>

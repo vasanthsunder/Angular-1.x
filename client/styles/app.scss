@@ -1,0 +1,41 @@
+@import "../bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "sass/asset-pipeline";
+@import "sass/mixins";
+@import "sass/variables";
+@import "sass/fonts";
+@import "sass/colors";
+@import "sass/icons";
+@import "sass/header";
+@import "sass/footer";
+@import "sass/home";
+@import "sass/responsive";
+@import "sass/grid";
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  font-family:"NHG-W01-55-Txt";
+  margin-bottom: 90px;
+
+  .container {
+    padding: 20px 15px 0;
+  }
+}
+.body-content {
+  margin-top: 20px;
+}
+
+.font-container > .row {
+  line-height:200%;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+.container-fluid {
+  max-width: 1185px;
+}

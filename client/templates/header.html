@@ -1,0 +1,27 @@
+<nav class="navbar navbar-default navbar-cd">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">
+      <img class="img-responsive" src="./assets/images/IRVUI_Header_Icon.png" alt="">
+      </a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <div class="nav-main-wrapper">
+        <ul class="nav navbar-nav nav-main">
+          <li ng-class="vm.getClass('/fonts')"><a href="/fonts">Fonts</a></li>
+          <li ng-class="vm.getClass('/colors')"><a href="/colors">Colors</a></li>
+          <li ng-class="vm.getClass('/icons')"><a href="/icons">Icons</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="header-text-right pull-right clearfix">
+      <h2>Web Generator</h2>
+    </div>
+  </div>
+</nav>

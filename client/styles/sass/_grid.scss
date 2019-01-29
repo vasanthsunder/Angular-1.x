@@ -1,0 +1,148 @@
+//-- dynamic table styles =======================//
+.ag-fresh {
+  .ag-root {
+    width: 100%;
+    border: none;
+  }
+  .ag-header {
+    height: 45px !important;
+  }
+  .ag-header-container {
+    height: auto !important;
+    left:0px;
+    margin-right: 15px;
+    padding-left: 0px;
+    border: 0px;
+  }
+  .ag-header-cell {
+    padding: 8px;
+    border-right-color: #ddd;
+  }
+  .ag-body {
+    padding-top: 44px !important;
+  }
+  .ag-body-container {
+    width: 100%;
+  }
+  #borderLayout_eGridPanel {
+    overflow: hidden !important;
+  }
+  .ag-header-cell:last-child {
+    border-right: 0px;
+  }
+  .ag-row-even {
+      background-color: #EEF1F9;
+  }
+  .ag-row-odd {
+      background-color: #FFF;
+  }
+  .ag-row {
+    .ag-cell {
+      padding: 4px;
+    }
+  }
+}
+
+
+
+//== grid styles START =======================//
+.ag-fresh {
+  .ag-body {
+    background-color: #f4f4f4;
+  }
+  .ag-header-viewport {
+    background: #dddede;
+  }
+  .ag-header-container {
+    background: transparent;
+  }
+  .ag-header-cell {
+    border-color: #ccc;
+    text-align: left;
+    border-right: 1px solid #ccc;
+    cursor: pointer;
+    &:hover {
+      background-color: #ccc;
+    }
+  }
+  .ag-body-viewport {
+    overflow-y: scroll;
+  }
+  .ag-row .ag-cell {
+    padding: 13px;
+    color: #58595B;
+    font-family: "Arial";
+    font-weight: 100;
+    border-right: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    cursor: pointer;
+    &:hover {
+      background-color: #e0e0e0;
+    }
+  }
+  .ag-header-cell-label {
+    color: #333;
+    font-weight: bold;
+    font-family: "Arial";
+  }
+  .ag-row-even {
+    background-color: #f4f4f4;
+  }
+  .ag-scrolls .ag-row {
+    .ag-cell:nth-child(2) {
+      font-weight: bold;
+    }
+    &:last-child {
+      border-bottom: 1px solid #ccc;
+    }
+  }
+
+  .ag-paging-panel {
+    width: 100%;
+    position: absolute;
+    top: -60px;
+    font-size: 18px;
+    .ag-paging-page-summary-panel {
+      color: #999;
+      font-size: 13px;
+      #current, #total {
+        color: #333;
+      }
+      .ag-paging-button {
+        margin: 0px;
+        color: #999;
+        padding: 5px 10px;
+        font-size: 12px;
+        line-height: 1.5;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+        background-color: #F5F5F5;
+      }
+      #btFirst, #btNext {
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+      }
+      #btPrevious, #btLast {
+        border-left: 0px;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+      }
+      #btPrevious {
+        margin-right: 10px;
+      }
+      #btNext {
+        margin-left: 10px;
+      }
+    }
+    .ag-paging-row-summary-panel {
+      color: #999;
+      #firstRowOnPage, #lastRowOnPage, #recordCount, #current, #total {
+        color: #333;
+      }
+    }
+    .ag-paging-page-summary-panel {
+      float: right;
+    }
+  }
+}
+//== grid styles END =======================//

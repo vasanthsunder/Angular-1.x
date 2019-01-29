@@ -1,0 +1,222 @@
+/* this media queries overwrite 
+-------------------------------------------------- */
+  @media screen and (min-width: 280px) {
+    .container-fluid {
+      height: 100%;
+      float: left;
+      width: 100%;
+      position: relative;
+    }
+    .navbar.navbar-cd {
+      padding: 0px;
+      height: 70px;
+      border-left: 0px;
+      border-right: 0px;
+      h2 {
+        display: none;
+      }
+      .navbar-header {
+        margin-right: 0px;
+        width: auto;
+        min-height: 65px;
+        .navbar-brand {
+          margin-top: 20px;
+          width: 109px;
+          position: static;
+        }
+        .navbar-toggle {
+          margin-top: 15px;
+          margin-right: 0px;
+          border-color: #999;
+        }
+      }
+      .nav-main {
+        margin-top: 0px;
+        text-align: center;
+        border-bottom: 3px solid $gray;
+        li {
+          margin-right: 0px;
+          border-bottom: 1px solid $lighter-gray;
+          a {
+            padding: 16px 30px;
+            font-size: 16px;
+            color: $black;
+            font-family:"NHG-W01-75-TxtBd";
+            &:hover {
+              color: $red;
+              background-color: $white;
+            }
+            &:active {
+              color: $red;
+              background-color: $white;
+            }
+          }
+        }
+      }
+    } 
+    .navbar-default {
+      .navbar-collapse {
+        margin-top: 4px;
+        margin-left: -15px;
+        float: none;
+        background: #f4f4f4;
+        position: relative;
+        z-index: 9;
+      }
+    }
+    .footer {
+      .copyrights {
+        margin-top: 0px;
+      }
+    }
+  }
+  @media screen and (min-width: 360px) {
+  }
+  @media screen and (min-width: 480px) {
+  }
+  @media screen and (min-width: 640px) {
+  }
+  @media (min-width: 768px) {
+    .navbar {
+      &.navbar-cd {
+        margin-bottom: 0px;
+        width: 100%;
+        height: 90px;
+        background-color: $white;
+        border-radius: 0px;
+        border-bottom: 1px solid $lighter-gray;
+        h2 {
+          display: none;
+        } 
+        .navbar-header {
+          margin-right: 0px;
+          margin-left: 0px;
+          width: 12.5%;
+           .navbar-brand {
+            margin-top: 28px;
+            width: 139px;
+          }
+        }
+        .header-text-right {
+          display: inline-block;
+          width: 17%;
+        }
+        .nav-main {
+          margin-top: 40px;
+          margin-bottom: 0px;
+          border-bottom: 0px;
+          > li {
+            margin-top: 0px;
+            margin-right: 50px;
+            border: 0px;
+             > a {
+              padding: 0px;
+              font-size: 24px;
+              color: $black;
+              font-family:"NHG-W01-75-TxtBd";
+              &:hover {
+                color: $red;
+                background-color: transparent;
+              }
+            }
+            &.active {
+              a { 
+                color: $red; 
+                background-color: transparent;
+              }
+            }
+            &:last-child {
+              margin-right: 0px;
+            }
+          }
+        }
+      }
+    }
+    .navbar-default .navbar-collapse {
+      margin-top: 0px;
+      margin-left: 18%;
+      float: left;
+      background-color: transparent;
+    }
+    .footer {
+      .navbar.navbar-cd .navbar-header {
+        margin-right: 0px;
+        padding-bottom: 0px;
+      }
+      .navbar-nav {
+        border-bottom: 0px;
+      }
+      .navbar-toggle {
+        margin-top: 5px;
+        margin-right: 0px;
+        margin-bottom: 10px;
+        &.collapsed {
+          margin-top: 5px;
+        }
+      }
+    }
+  }
+  @media (min-width: 900px) {
+    .navbar {
+      &.navbar-cd {
+        h2 {
+          margin-top: 31px;
+          width: 100%;
+          font-size: 30px;
+          display: inline-block;
+        } 
+        .navbar-header .navbar-brand {
+          margin-left: 0px;
+          margin-top: 28px;
+          width: 139px;
+          height: 32px;
+        }
+        .header-text-right {
+          width: auto;
+        }
+        .nav-main {
+          > li {
+            margin-right: 50px;          
+            a {
+              font-size: 24px;
+            }
+          }
+        }
+      }
+    }
+    .navbar-default .navbar-collapse {
+      margin-left: 8%;
+    }
+    .footer {
+      .navbar {
+        &.navbar-cd {
+          height: 90px;
+        }
+      }
+      .navbar.navbar-cd .navbar-header {
+        margin-right: 0px;
+        padding-bottom: 0px;
+      }
+      .navbar-nav {
+        border-bottom: 0px;
+      }
+      .navbar-toggle {
+        margin-top: 5px;
+        margin-right: 0px;
+        margin-bottom: 10px;
+        &.collapsed {
+          margin-top: 5px;
+        }
+      }
+    }
+  }
+  @media (min-width: 992px) {
+    .navbar-default .navbar-collapse {
+      margin-left: 5%;
+    }
+  }
+  @media (min-width: 1200px) {
+    .container-fluid {
+      float: none;
+    }
+  }

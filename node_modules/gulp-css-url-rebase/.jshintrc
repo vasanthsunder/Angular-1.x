@@ -1,0 +1,26 @@
+{
+  "bitwise": true,
+  "eqeqeq": true,
+  "forin": true,
+  "freeze": true,
+  "globalstrict": true,
+  "latedef": true,
+  "laxbreak": true,
+  "maxdepth": 3,
+  "nonbsp": true,
+  "nonew": false,
+  "strict": true,
+  "undef": true,
+  "unused": true,
+  "globals": {
+    "require": true,
+    "__dirname": true,
+    "process": true,
+    "module": true,
+    "Buffer": true,
+    "describe": true,
+    "it": true,
+    "afterEach": true,
+    "beforeEach": true
+  }
+}

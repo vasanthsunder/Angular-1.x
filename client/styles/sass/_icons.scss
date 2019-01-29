@@ -1,0 +1,242 @@
+// Icons
+// .ui-icons {
+//   .panel-body {
+//     padding-right: 0px;
+//     padding-left: 0px;
+//   }
+
+//   .ui-icons-list {
+//     margin: 0px auto;
+//     padding-left: 0.5%;
+
+//     ul {
+//       padding: 0px;
+//       li {
+//         margin-right: 0.5%;
+//         margin-bottom: 2px;
+//         width: 12%;
+//         float: left;
+//         //background: $dedede;
+//         list-style-type: none;
+//         span {
+//           padding: 10px;
+//           display: block;
+//           //font-size: $font-size-medium;
+//           text-align: center;
+//         }
+//         span.icons-name {
+//           padding: 10px 20px;
+//           //font-size: $font-size-small;
+//           word-wrap: break-word;
+//         }
+//       }
+//     }
+//   }
+// }
+
+.vz-icons {
+  width: 100%;
+  text-align: center;
+  .icon-container {
+    margin: 0 0 10px;
+    display: inline-block;
+    padding: 0.5em;
+    min-width: 18%;
+    width: auto;
+    [class^="icon-"],
+    [class*=" icon-"] {
+      display: block;
+      height: 80px;
+      font-size: 1.5em;
+      line-height: 100px;
+      cursor: pointer;
+      transition: all .3s ease-in-out;
+      &:hover {
+      	font-size: 3em;
+      }
+    }
+    .glyphicon-class {
+      display: block;
+      text-align: center;
+      word-wrap: break-word;
+    }
+  }
+  .icon-name {
+    margin: 5px 0 0;
+    display: block;
+    color: #aaa;
+    font-size: .8em;
+    transition: all .3s ease-in-out;
+  }
+}
+
+$font-path:               "/assets/fonts" !default;
+
+// Declare icon font
+@include font-face('icons', '#{$font-path}/icons');
+
+[data-icon]:before { content: attr(data-icon); }
+
+[data-icon]:before,
+.icon-angle-down:before,
+.icon-angle-left:before,
+.icon-angle-right:before,
+.icon-angle-up:before,
+.icon-app-sample:before,
+.icon-bell:before,
+.icon-card-view:before,
+.icon-check:before,
+.icon-check-square-off:before,
+.icon-check-square-on:before,
+.icon-chevron-down:before,
+.icon-chevron-left:before,
+.icon-chevron-right:before,
+.icon-chevron-up:before,
+.icon-close:before,
+.icon-edit:before,
+.icon-error:before,
+.icon-home:before,
+.icon-info-circle:before,
+.icon-list-view:before,
+.icon-pages:before,
+.icon-palette:before,
+.icon-pattern:before,
+.icon-pause-circle:before,
+.icon-profile:before,
+.icon-radio-off:before,
+.icon-radio-on:before,
+.icon-save:before,
+.icon-search:before,
+.icon-trash:before,
+.icon-warning:before {
+  display: inline-block;
+  font-family: "icons";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+.icon-angle-down:before { content: "\f100"; }
+.icon-angle-left:before { content: "\f109"; }
+.icon-angle-right:before { content: "\f101"; }
+.icon-angle-up:before { content: "\f10a"; }
+.icon-app-sample:before { content: "\f102"; }
+.icon-bell:before { content: "\f128"; }
+.icon-card-view:before { content: "\f122"; }
+.icon-check:before { content: "\f11d"; }
+.icon-check-square-off:before { content: "\f118"; }
+.icon-check-square-on:before { content: "\f119"; }
+.icon-chevron-down:before { content: "\f103"; }
+.icon-chevron-left:before { content: "\f10b"; }
+.icon-chevron-right:before { content: "\f104"; }
+.icon-chevron-up:before { content: "\f10c"; }
+.icon-close:before { content: "\f112"; }
+.icon-edit:before { content: "\f129"; }
+.icon-error:before { content: "\f11e"; }
+.icon-home:before { content: "\f124"; }
+.icon-info-circle:before { content: "\f11f"; }
+.icon-list-view:before { content: "\f123"; }
+.icon-pages:before { content: "\f106"; }
+.icon-palette:before { content: "\f125"; }
+.icon-pattern:before { content: "\f107"; }
+.icon-pause-circle:before { content: "\f120"; }
+.icon-profile:before { content: "\f108"; }
+.icon-radio-off:before { content: "\f11a"; }
+.icon-radio-on:before { content: "\f11b"; }
+.icon-save:before { content: "\f113"; }
+.icon-search:before { content: "\f114"; }
+.icon-trash:before { content: "\f12a"; }
+.icon-warning:before { content: "\f11c"; }
+
+$font-icons-angle-down: "\f100";
+$font-icons-angle-left: "\f109";
+$font-icons-angle-right: "\f101";
+$font-icons-angle-up: "\f10a";
+$font-icons-app-sample: "\f102";
+$font-icons-bell: "\f128";
+$font-icons-card-view: "\f122";
+$font-icons-check: "\f11d";
+$font-icons-check-square-off: "\f118";
+$font-icons-check-square-on: "\f119";
+$font-icons-chevron-down: "\f103";
+$font-icons-chevron-left: "\f10b";
+$font-icons-chevron-right: "\f104";
+$font-icons-chevron-up: "\f10c";
+$font-icons-close: "\f112";
+$font-icons-edit: "\f129";
+$font-icons-error: "\f11e";
+$font-icons-home: "\f124";
+$font-icons-info-circle: "\f11f";
+$font-icons-list-view: "\f123";
+$font-icons-pages: "\f106";
+$font-icons-palette: "\f125";
+$font-icons-pattern: "\f107";
+$font-icons-pause-circle: "\f120";
+$font-icons-profile: "\f108";
+$font-icons-radio-off: "\f11a";
+$font-icons-radio-on: "\f11b";
+$font-icons-save: "\f113";
+$font-icons-search: "\f114";
+$font-icons-trash: "\f12a";
+$font-icons-warning: "\f11c";
+
+// List icons
+$icons: (
+    angle-down: "\f100",
+    angle-left: "\f109",
+    angle-right: "\f101",
+    angle-up: "\f10a",
+    app-sample: "\f102",
+    bell: "\f128",
+    card-view: "\f122",
+    check: "\f11d",
+    check-square-off: "\f118",
+    check-square-on: "\f119",
+    chevron-down: "\f103",
+    chevron-left: "\f10b",
+    chevron-right: "\f104",
+    chevron-up: "\f10c",
+    close: "\f112",
+    edit: "\f129",
+    error: "\f11e",
+    home: "\f124",
+    info-circle: "\f11f",
+    list-view: "\f123",
+    pages: "\f106",
+    palette: "\f125",
+    pattern: "\f107",
+    pause-circle: "\f120",
+    profile: "\f108",
+    radio-off: "\f11a",
+    radio-on: "\f11b",
+    save: "\f113",
+    search: "\f114",
+    trash: "\f12a",
+    warning: "\f11c",
+);
+
+// Use to apply icons
+@mixin icon($position: before, $icon: false, $styles: true) {
+  @if $position == both {
+    $position: 'before, &:after';
+  }
+  &:#{$position} {
+    @if $icon {
+      content: "#{map-get($icons, $icon)}";
+    }
+    @if $styles {
+      speak: none;
+      font-style: normal;
+      font-weight: normal;
+      font-family: 'icons';
+    }
+    @content;
+  }
+}

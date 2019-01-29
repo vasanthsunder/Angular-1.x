@@ -1,0 +1,56 @@
+
+.colors {
+    .panel-body {
+        .row { margin: 0px 2.3%; }
+    }
+}
+.color-container {
+    background: none repeat scroll 0% 0% #ECE9E9;
+    padding-right: 0px;
+    padding-left: 0px;
+    margin: 0px 1% 30px;
+    min-width: 100px;
+    max-width: 115px;
+    width: 7%;
+    float: left;
+
+  .color-swatch {
+    float: left;
+    border-radius: 3px;
+    height: 90px;
+    width: 100%;
+
+    &.red { background-color: $red; }
+    &.black { background-color: $black; }
+    &.white { background-color: $white; border: 1px solid #D2D3D4; }
+
+    &.bg-gray-1 { background-color: $bg-gray-1; }
+    &.bg-gray { background-color: $bg-gray; }
+
+    &.charcoal { background-color: $charcoal; }
+    &.gray { background-color: $gray; }
+    &.light-gray { background-color: $light-gray; }
+    &.lighter-gray { background-color: $lighter-gray; }
+
+    &.red-hover { background-color: $red-hover; }
+    &.red-active { background-color: $red-active; }
+    &.blue-link { background-color: $blue-link; }
+    &.blue-link-hover { background-color: $blue-link-hover; }
+
+    &.pop-teal { background-color: $pop-teal; }
+    &.pop-gold { background-color: $pop-gold; }
+    &.pop-sky { background-color: $pop-sky; }
+    &.pop-green { background-color: $pop-green; }
+    &.pop-blue { background-color: $pop-blue; }
+    &.pop-yellow { background-color: $pop-yellow; }
+    &.pop-salmon { background-color: $pop-salmon; }
+    &.pop-orange { background-color: $pop-orange; }
+
+    &.brand-primary { background-color: $brand-primary; }
+    &.brand-success { background-color: $brand-success; }
+    &.brand-info { background-color: $brand-info; }
+    &.brand-warning { background-color: $brand-warning; }
+    &.brand-danger { background-color: $brand-danger; }
+  }
+
+}
